@@ -4,6 +4,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Load profile photo from localStorage if present (smooth client-side fallback)
+    const profileImg = document.getElementById('profile-img');
+    if (profileImg) {
+        const savedPhoto = localStorage.getItem('portfolio_profile_photo');
+        if (savedPhoto) {
+            profileImg.src = savedPhoto;
+        }
+    }
+
     // 1. PROJECT DATA & MODAL HANDLER
     const projectDetails = {
         library: {
